@@ -39,3 +39,6 @@ per second on recent computers.
 
 ## Documentation
 https://github.com/jbakosi/ndiff/blob/master/doc/CERN-ACC-NOTE-2013-0005.pdf
+
+## Fork
+This forks http://svn.cern.ch/guest/madx/trunk/madX/tools/numdiff.
