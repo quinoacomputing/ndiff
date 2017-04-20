@@ -14,6 +14,8 @@ file(GLOB numdiff_src src/*.c)
 
 include_directories(src)
 add_executable(numdiff ${numdiff_src})
+set(OUTPUT_NAME maddiff CACHE string "Output name for executable")
+set_target_properties(numdiff PROPERTIES OUTPUT_NAME ${OUTPUT_NAME})
 if(UNIX)
    target_link_libraries(numdiff m)
 endif()
