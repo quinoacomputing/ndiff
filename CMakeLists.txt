@@ -3,12 +3,13 @@ cmake_minimum_required(VERSION 2.4)
 PROJECT(numdiff C)
 
 if(NOT "${CMAKE_C_FLAGS}" MATCHES "std=c99")
-   if(NOT (WIN32 AND CMAKE_C_COMPILER_ID STREQUAL "Intel") AND
-      NOT CMAKE_C_COMPILER_ID STREQUAL "PGI" AND
-      NOT CMAKE_C_COMPILER_ID STREQUAL "Cray")
-      set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99")
-   else()
-      set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /Qstd=c99")
+   if(NOT CMAKE_C_COMPILER_ID STREQUAL "Cray")
+     if(NOT (WIN32 AND CMAKE_C_COMPILER_ID STREQUAL "Intel") AND
+        NOT CMAKE_C_COMPILER_ID STREQUAL "PGI")
+        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99")
+     else()
+        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /Qstd=c99")
+     endif()
    endif()
 endif()
 
